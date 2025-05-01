@@ -1,4 +1,4 @@
-from abc import ABC, classmethod
+from abc import ABC, abstractmethod
 
 class Flight(ABC):
     def __init__(self, flight_number, destination, price):
@@ -6,10 +6,10 @@ class Flight(ABC):
         self._destination = destination
         self._price = price
 
-    @classmethod
+    @abstractmethod
     def book_flight(self):
         pass
 
-    @classmethod
+    @abstractmethod
     def unbook_flight(self):
         pass
