@@ -3,16 +3,15 @@ from Flight import Flight
 class LocalFlight(Flight):
     def __init__(self, flight_number, destination):
         super().__init__(flight_number, destination, price = 10000)
-        self._isBooked = False
 
     def book_flight(self):
-        if not self._isBooked:
-            self._isBooked = True
+        if not self.isBooked:
+            self.isBooked = True
         else:
             print("This plane is already booked")
     
     def unbook_flight(self):
-        if self._isBooked:
-            self._isBooked = False
+        if self.isBooked:
+            self.isBooked = False
         else:
-            print("This plane is already available")
+            print("This plane is already available")  
