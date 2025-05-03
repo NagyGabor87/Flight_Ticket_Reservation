@@ -56,8 +56,7 @@ class ReservationSystem:
                                 print("\n" "This flight is already booked on that date, please choose another date")
                                 continue
                             else:
-                                reservation = TicketReservation(len(self._airline._reservations)+1, flight_number, date)
-                                self._airline._reservations.append(reservation)
+                                self._airline.book_flight(flight_number, date)
                                 print("\n" f"Your reservation is booked on flight number {flight_number} on the date of {date}")
                                 break
                         else:
@@ -78,7 +77,7 @@ class ReservationSystem:
                         reservation_date = input("\n" "Please enter the date which you want to cancel (YYYY-MM-DD): ")
                         if self.is_date_valid(reservation_date):
                             if self._airline.is_reserved(reservation_date):
-                                self._airline._reservations.remove(reservation)
+                                self._airline.unbook_flight(reservation_date)
                                 print("\n" f"Your reservation is cancelled on flight number {flight_number} on the date of {reservation_date}")
                                 break
                             else:

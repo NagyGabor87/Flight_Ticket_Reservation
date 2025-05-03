@@ -1,3 +1,4 @@
+from TicketReservation import TicketReservation
 
 class Airline:
     def __init__(self, name):
@@ -41,12 +42,11 @@ class Airline:
                 return True
         return False      
 
-    def book_flight(self, flight_number):
-        for flight in self._flights:
-            if flight.flight_number == flight_number:
-                return flight.book_flight()
+    def book_flight(self, flight_number, date):
+        reservation = TicketReservation(len(self._reservations)+1, flight_number, date)
+        self._reservations.append(reservation)
                 
-    def unbook_flight(self, flight_number):
-        for flight in self._flights:
-            if flight.flight_number == flight_number:
-                return flight.unbook_flight()
+    def unbook_flight(self, reservation_date):
+        for reservation in self._reservations:
+            if reservation._reservation_date == reservation_date:
+                self._reservations.remove(reservation)
