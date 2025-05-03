@@ -3,6 +3,7 @@ from TicketReservation import TicketReservation
 from LocalFlight import LocalFlight
 from InternationalFlight import InternationalFlight
 from datetime import datetime
+import uuid
 import re
 
 class ReservationSystem:
@@ -14,12 +15,12 @@ class ReservationSystem:
         self._airline.flights = LocalFlight("SP001", "New York")
         self._airline.flights = InternationalFlight("SP002", "London")
         self._airline.flights = LocalFlight("SP003", "Las Vegas")
-        self._airline.reservations = TicketReservation(1, "SP001", "2025-05-05")
-        self._airline.reservations = TicketReservation(2, "SP001", "2025-05-07")
-        self._airline.reservations = TicketReservation(3, "SP002", "2025-05-10")
-        self._airline.reservations = TicketReservation(4, "SP002", "2025-05-04")
-        self._airline.reservations = TicketReservation(5, "SP003", "2025-05-02")
-        self._airline.reservations = TicketReservation(6, "SP003", "2025-05-14")
+        self._airline.reservations = TicketReservation(uuid.uuid4(), "SP001", "2025-05-05")
+        self._airline.reservations = TicketReservation(uuid.uuid4(), "SP001", "2025-05-07")
+        self._airline.reservations = TicketReservation(uuid.uuid4(), "SP002", "2025-05-10")
+        self._airline.reservations = TicketReservation(uuid.uuid4(), "SP002", "2025-05-04")
+        self._airline.reservations = TicketReservation(uuid.uuid4(), "SP003", "2025-05-02")
+        self._airline.reservations = TicketReservation(uuid.uuid4(), "SP003", "2025-05-14")
 
     def is_date_valid(self,date):
         pattern = r"^\d{4}-\d{2}-\d{2}$"

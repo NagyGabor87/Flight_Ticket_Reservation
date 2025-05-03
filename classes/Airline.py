@@ -1,4 +1,5 @@
 from TicketReservation import TicketReservation
+import uuid
 
 class Airline:
     def __init__(self, name):
@@ -43,7 +44,7 @@ class Airline:
         return False      
 
     def book_flight(self, flight_number, date):
-        reservation = TicketReservation(len(self._reservations)+1, flight_number, date)
+        reservation = TicketReservation(uuid.uuid4(), flight_number, date)
         self._reservations.append(reservation)
                 
     def unbook_flight(self, reservation_date):
